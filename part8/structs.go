@@ -1,29 +1,32 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-type part struct {
-	description string
-	count       int
+type subsciber struct {
+	name   string
+	rate   float64
+	active bool
 }
 
-type car struct {
-	name     string
-	topSpeed float64
+func printInfo(s subsciber) {
+	fmt.Println("Name:", s.name)
+	fmt.Println("Rate:", s.rate)
+	fmt.Println("Active?:", s.active)
+}
+
+func defaultSubscriber(name string) subsciber {
+	return subsciber{
+		name:   name,
+		rate:   4.99,
+		active: true,
+	}
 }
 
 func main() {
-	showInfo(car{"Aventador", 455})
-	fmt.Printf("% 	v\n", minimiumOrder("Hex bolts"))
-}
-
-func showInfo(c car) {
-	fmt.Println("This is ", c.name, "with top speed of ", c.topSpeed)
-}
-
-func minimiumOrder(descripiton string) part {
-	var p part
-	p.description = descripiton
-	p.count = 100
-	return p
+	printInfo(defaultSubscriber("Abylay"))
+	aigali := defaultSubscriber("Aigali")
+	aigali.rate = 10
+	printInfo(aigali)
 }
