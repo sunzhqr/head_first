@@ -1,24 +1,32 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"head_first/magazine"
+)
 
-type SomeStruct struct {
-	someInt int
-}
+//
+//type SomeStruct struct {
+//	someInt int
+//}
 
 func main() {
-	var s SomeStruct
-	s.someInt = 42
-	fmt.Println(s)
-	fmt.Println(s.someInt)
-	var point *SomeStruct = &s
-	fmt.Println(point)
-	fmt.Println(*point)
-	fmt.Println((*point).someInt)
-	fmt.Println(point.someInt)
+	subscriber := magazine.Subscriber{
+		Name: "Sanzhar",
+	}
+	subscriber.Street = "Dostyk 12"
+	subscriber.PostalCode = "01"
+	fmt.Println(subscriber)
 
-	point.someInt = 5
-	fmt.Println(s.someInt)
-	fmt.Println(point.someInt)
-
+	employee := magazine.Employee{
+		"Alem",
+		500000,
+		magazine.Address{
+			"Magilik el",
+			"Astana",
+			"KZ",
+			"001",
+		},
+	}
+	fmt.Println(employee)
 }
